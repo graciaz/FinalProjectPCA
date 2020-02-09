@@ -1,4 +1,4 @@
-function [featureTr featureTs lblTr lblTs nameTr nameTs]=eigenfaceExtractByUsing2DPCA(datapath,max_class,PCs,PX)
+function [featureTr featureTs lblTr lblTs nameTr nameTs, Eivecs, imIn]=eigenfaceExtractByUsing2DPCA(datapath,max_class,PCs,PX)
 
 %%%%%%%%%  finding number of training images in the data path specified as argument  %%%%%%%%%%
 img = {};
@@ -15,6 +15,8 @@ for class_num = 1:max_class
         end
     end
 end
+
+imIn = img;
 
 %%%% Create the image matrix X
 r = size(img{1,1},1);
@@ -91,6 +93,8 @@ V = V(:,idx);
 D = diag(D);
 D = D(idx);
 D = D/sum(D);
+
+Eivecs = V;
 
 % select eigenvector
 L_eig_vec = V(:,1:PCs);
