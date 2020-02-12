@@ -3,7 +3,7 @@ clear all
 close all
 clc
 
-path = ['angle']; %dataset
+path = ['illumination']; %dataset
 TestImage = [''] 
 
 %%%%%%%%%%%%%  calling the functions  %%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,12 +17,12 @@ for i = 0: 9
     %%% illumination = 168 %%%
     
     %%%%% Edit range with Size V (from above)%%%%%
-    for j = 1: 92 %1: 5
+    for j = 1: 168 %1: 5
         pc = j; % number of eigenface
         px = i; %% 10k mod
 
         %%%%%%%%%%%% 2DPCA %%%%%%%%%%%%%%%%%%%
-        [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2, V] = eigenfaceExtractByUsing2DPCA(path,40,pc,px);
+        [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2, V] = eigenfaceExtractByUsing2DPCA(path,38,pc,px);
         lblPredict2 = knnclassify(featureTs2', featureTr2', lblTr2, 1);
 
         score2_2DPCA = sum(lblTs2 == lblPredict2)/size(lblTs2,1)*100
@@ -70,7 +70,8 @@ for n = 1: size(V,1) %1: 5
     chkSum = [chkSum; sumScore];
     meanScore = [meanScore; sumScore/o];
 end
-subplot(4,3,[11,12])
+%%%%%% If you want only Mean PX plot. Please comment subplot %%%%%%
+subplot(4,3,[11,12]) %comment this line if you want only Mean PX plot
 plot(x, meanScore)
 title('PX = 0-9')
     
