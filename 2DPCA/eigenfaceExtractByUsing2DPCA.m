@@ -1,4 +1,4 @@
-function [featureTr featureTs lblTr lblTs nameTr nameTs]=eigenfaceExtractByUsing2DPCA(datapath,max_class,PCs,PX)
+function [featureTr featureTs lblTr lblTs nameTr nameTs, V]=eigenfaceExtractByUsing2DPCA(datapath,max_class,PCs,PX)
 
 %%%%%%%%%  finding number of training images in the data path specified as argument  %%%%%%%%%%
 img = {};
