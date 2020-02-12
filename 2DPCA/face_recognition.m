@@ -47,16 +47,19 @@ end
 
 %%%%%%%%%% Multiple plot %%%%%%%%%%
 x = 1: size(V,1); %1:5;
+
+%%% Each PX %%%
 for k = 1: 10 %1: 3
     y=[];
     for m = 1: size(V,1) %1: 5
         y = [y, scorePerEi(m,1,k)];
     end
-    subplot(6,2,k)
+    subplot(4,3,k)
     plot(x, y)
     title(['PX = ', num2str(k-1)])
 end
 
+%%% Mean PX %%%
 meanScore = [];
 chkSum = [];
 for n = 1: size(V,1) %1: 5
@@ -67,7 +70,7 @@ for n = 1: size(V,1) %1: 5
     chkSum = [chkSum; sumScore];
     meanScore = [meanScore; sumScore/o];
 end
-subplot(6,2,11)
+subplot(4,3,[11,12])
 plot(x, meanScore)
 title('PX = 0-9')
     
