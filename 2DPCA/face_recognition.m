@@ -9,7 +9,7 @@ TestImage = ['']
 %%%%%%%%%%%%%  calling the functions  %%%%%%%%%%%%%%%%%%%%%%%%
 
 scorePerEi = [];
-for i = 0: 9
+for i = 0: 2 %%%% change px here %%%% %9
     scs=[];
     %%%%%% Size V %%%%%%
     %%% angle = 92 %%%
@@ -17,7 +17,7 @@ for i = 0: 9
     %%% illumination = 168 %%%
     
     %%%%% Edit range with Size V (from above)%%%%%
-    for j = 1: 168 %1: 5
+    for j = 1: 15 %168 %1: 5
         pc = j; % number of eigenface
         px = i; %% 10k mod
 
@@ -46,32 +46,32 @@ end
 % plot(x, y);
 
 %%%%%%%%%% Multiple plot %%%%%%%%%%
-x = 1: size(V,1); %1:5;
+x = 1: 15 %size(V,1); %1:5;
 
 %%% Each PX %%%
-for k = 1: 10 %1: 3
+for k = 1: 3%10 %1: 3
     y=[];
     for m = 1: size(V,1) %1: 5
         y = [y, scorePerEi(m,1,k)];
     end
-    subplot(4,3,k)
+    subplot(1,3,k)
     plot(x, y)
     title(['PX = ', num2str(k-1)])
 end
 
 %%% Mean PX %%%
-meanScore = [];
-chkSum = [];
-for n = 1: size(V,1) %1: 5
-    sumScore = 0;
-    for o = 1: 10 %1: 3 
-        sumScore = sumScore + scorePerEi(n,1,o);
-    end
-    chkSum = [chkSum; sumScore];
-    meanScore = [meanScore; sumScore/o];
-end
+% meanScore = [];
+% chkSum = [];
+% for n = 1: 15%size(V,1) %1: 5
+%     sumScore = 0;
+%     for o = 1: 3 %1: 3 
+%         sumScore = sumScore + scorePerEi(n,1,o);
+%     end
+%     chkSum = [chkSum; sumScore];
+%     meanScore = [meanScore; sumScore/o];
+% end
 %%%%%% If you want only Mean PX plot. Please comment subplot %%%%%%
-subplot(4,3,[11,12]) %comment this line if you want only Mean PX plot
-plot(x, meanScore)
-title('PX = 0-9')
+% subplot(4,3,[11,12]) %comment this line if you want only Mean PX plot
+% plot(x, meanScore)
+% title('PX = 0-9')
     
