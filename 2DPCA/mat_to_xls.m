@@ -6,7 +6,7 @@ xlsName = 'test6.xlsx';
 sheetName = "emoji";
 colHeader = ["PX = 0", "PX = 1", "PX = 2", "PX = 3", "PX = 4", "PX = 5", "PX = 6", "PX = 7", "PX = 8", "PX = 9"];
 rowHeader(1:eiVecs,1) = [1: eiVecs];
-eiV = ["Amount of eigenvector"];
+
 %%%%% Write data to file.xlsx %%%%%
 xlswrite(xlsName, colHeader, sheetName, 'B1'); %write column header
 xlswrite(xlsName, rowHeader, sheetName, 'A2'); %write row header
