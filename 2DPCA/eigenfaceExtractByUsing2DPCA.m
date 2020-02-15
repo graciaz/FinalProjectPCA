@@ -16,6 +16,8 @@ for class_num = 1:max_class
     end
 end
 
+imIn = img;
+
 %%%% Create the image matrix X
 r = size(img{1,1},1);
 c = size(img{1,1},2);
@@ -91,6 +93,8 @@ V = V(:,idx);
 D = diag(D);
 D = D(idx);
 D = D/sum(D);
+
+Eivecs = V;
 
 % select eigenvector
 L_eig_vec = V(:,1:PCs);

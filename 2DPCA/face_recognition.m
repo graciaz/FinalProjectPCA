@@ -10,7 +10,7 @@ scs=[];
 %%%%%% For illumination%%%%%%
 for j = 1: 168 %168 %1: 5
         pc = j; % number of eigenface
-        px = 2; %% 10k mod
+        px = 1; %% 10k mod
 
         %%%%%%%%%%%% 2DPCA %%%%%%%%%%%%%%%%%%%
         [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2, V] = eigenfaceExtractByUsing2DPCA(path,38,pc,px);
