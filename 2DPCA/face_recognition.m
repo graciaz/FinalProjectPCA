@@ -6,48 +6,48 @@ clc
 path = ['illumination']; %dataset
 TestImage = [''] 
 
-scs=[];
-%%%%%% For illumination%%%%%%
-for j = 1: 100 %168 %1: 5
-    pc = j; % number of eigenface
-    px = 1; %% 10k mod
-
-    %%%%%%%%%%%% 2DPCA %%%%%%%%%%%%%%%%%%%
-    [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2 V] = eigenfaceExtractByUsing2DPCA(path,38,pc,px);
-    lblPredict2 = knnclassify(featureTs2', featureTr2', lblTr2, 1);
-
-    score2_2DPCA = sum(lblTs2 == lblPredict2)/size(lblTs2,1)*100
-
-    %escs = [j score2_2DPCA];
-    scs = [scs, score2_2DPCA];
-end
+% scs=[];
+% %%%%%% For illumination%%%%%%
+% for j = 1: 100 %168 %1: 5
+%     pc = j; % number of eigenface
+%     px = 1; %% 10k mod
+% 
+%     %%%%%%%%%%%% 2DPCA %%%%%%%%%%%%%%%%%%%
+%     [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2 V] = eigenfaceExtractByUsing2DPCA(path,38,pc,px);
+%     lblPredict2 = knnclassify(featureTs2', featureTr2', lblTr2, 1);
+% 
+%     score2_2DPCA = sum(lblTs2 == lblPredict2)/size(lblTs2,1)*100
+% 
+%     %escs = [j score2_2DPCA];
+%     scs = [scs, score2_2DPCA];
+% end
 
 %%%%%%%%%%%%%  calling the functions  %%%%%%%%%%%%%%%%%%%%%%%%
 
-% scorePerEi = [];
-% for i = 0: 2 %%%% change px here %%%% %9
-%     scs=[];
-%     %%%%%% Size V %%%%%%
-%     %%% angle = 92 %%%
-%     %%% emoji = 195 %%%
-%     %%% illumination = 168 %%%
-%     
-%     %%%%% Edit range with Size V (from above)%%%%%
-%     for j = 1: 15 %168 %1: 5
-%         pc = j; % number of eigenface
-%         px = i; %% 10k mod
-% 
-%         %%%%%%%%%%%% 2DPCA %%%%%%%%%%%%%%%%%%%
-%         [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2, V] = eigenfaceExtractByUsing2DPCA(path,38,pc,px);
-%         lblPredict2 = knnclassify(featureTs2', featureTr2', lblTr2, 1);
-% 
-%         score2_2DPCA = sum(lblTs2 == lblPredict2)/size(lblTs2,1)*100
-% 
-%         %escs = [j score2_2DPCA];
-%         scs = [scs; score2_2DPCA];
-%     end
-%     scorePerEi = cat(3, scorePerEi, scs);
-% end
+scorePerEi = [];
+for i = 0: 9 %%%% change px here %%%% %9
+    scs=[];
+    %%%%%% Size V %%%%%%
+    %%% angle = 92 %%%
+    %%% emoji = 195 %%%
+    %%% illumination = 168 %%%
+    
+    %%%%% Edit range with Size V (from above)%%%%%
+    for j = 1: 100 %168 %1: 5
+        pc = j; % number of eigenface
+        px = i; %% 10k mod
+
+        %%%%%%%%%%%% 2DPCA %%%%%%%%%%%%%%%%%%%
+        [featureTr2 featureTs2 lblTr2 lblTs2 nameTr2 nameTs2, V] = eigenfaceExtractByUsing2DPCA(path,38,pc,px);
+        lblPredict2 = knnclassify(featureTs2', featureTr2', lblTr2, 1);
+
+        score2_2DPCA = sum(lblTs2 == lblPredict2)/size(lblTs2,1)*100
+
+        %escs = [j score2_2DPCA];
+        scs = [scs, score2_2DPCA];
+    end
+    scorePerEi = cat(3, scorePerEi, scs);
+end
 
 %%%%%%%%%% Plot graph %%%%%%%%%%
 % x=[];

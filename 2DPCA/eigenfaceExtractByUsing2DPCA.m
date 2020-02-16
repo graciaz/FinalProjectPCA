@@ -74,9 +74,30 @@ function [featureTr featureTs lblTr lblTs nameTr nameTs V]=eigenfaceExtractByUsi
 %     Y = cat(3,Y,cov(ImgZeroMean(:,:,j)));
 %     
 % end
+if PX == 0
+    load('data0_illumination.mat');
+elseif PX == 1
+    load('data1_illumination.mat');
+elseif PX == 2
+    load('data2_illumination.mat');
+elseif PX == 3
+    load('data3_illumination.mat');
+elseif PX == 4
+    load('data4_illumination.mat');
+elseif PX == 5
+    load('data5_illumination.mat');
+elseif PX == 6
+    load('data6_illumination.mat');
+elseif PX == 7
+    load('data7_illumination.mat');
+elseif PX == 8
+    load('data8_illumination.mat');
+elseif PX == 9
+    load('data9_illumination.mat');
+end
 
-load('data1_illumination.mat');
 ImgZeroMean = xTr - m;
+
 %%% Mean Covarianc Matrix
 %L = mean(Y,3);
 L = median(Y,3);
