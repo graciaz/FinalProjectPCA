@@ -1,8 +1,8 @@
 clear all
 
 %%%%% export data to file.mat %%%%%
-path = ['illumination']; %dataset
+path = ['emoji']; %dataset
 
 %%%%%%%%%%%%%  calling the functions  %%%%%%%%%%%%%%%%%%%%%%%%
-px = 0; %% 10k mod
+px = 9; %% 10k mod
 [lblTr lblTs nameTr nameTs Y xTr xTs m]=prepareData(path,38,px)
