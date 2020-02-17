@@ -3,7 +3,7 @@ clear all
 close all
 clc
 
-path = ['illumination']; %dataset
+path = ['emoji']; %dataset
 TestImage = [''] 
 
 % scs=[];
@@ -33,7 +33,7 @@ for i = 0: 9 %%%% change px here %%%% %9
     %%% illumination = 168 %%%
     
     %%%%% Edit range with Size V (from above)%%%%%
-    for j = 1: 100 %168 %1: 5
+    for j = 1: 195 %168 %1: 5
         pc = j; % number of eigenface
         px = i; %% 10k mod
 
