@@ -146,19 +146,19 @@ ImgZeroMean = xTr - m;
 %%% Mean Covarianc Matrix
 %L = mean(Y,3);
 %L = median(Y,3);
-L = mode(Y,3);
+%L = mode(Y,3);
 
 % max 3 dim
 % min 3 dim
 %end
 
 %%%%% for max and min %%%%%
-% L = zeros(size(Y,1),size(Y,1));
-% for r = 1: size(Y, 1)
-%     for t = 1: size(Y, 1)
-%         L(r, t) = max(Y(1,1,:));
-%     end
-% end
+ L = zeros(size(Y,1),size(Y,1));
+ for r = 1: size(Y, 1)
+     for t = 1: size(Y, 1)
+         L(r, t) = min(Y(r,t,:));
+     end
+ end
 
         
 
