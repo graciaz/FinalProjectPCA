@@ -161,8 +161,11 @@ ImgZeroMean = xTr - m;
 %      end
 %  end
 
-% For Skewness
-[L] = SkewnessCal(Y);
+%%%%% For Skewness %%%%%
+%[L] = SkewnessCal(Y);
+
+%%%%% For Kurtosis %%%%%
+[L] = kurtosisCal(Y);
         
 
 % imgcount = size(Zeromean,2);
