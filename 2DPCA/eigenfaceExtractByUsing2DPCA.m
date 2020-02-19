@@ -1,5 +1,5 @@
 function [featureTr featureTs lblTr lblTs nameTr nameTs V]=eigenfaceExtractByUsing2DPCA(datapath,max_class,PCs,PX)
-%function [L Y]=eigenfaceExtractByUsing2DPCA(max_class,PCs,PX)
+%function [Y m ImgZeroMean]=eigenfaceExtractByUsing2DPCA(max_class,PCs,PX)
 %%%%%%%%  finding number of training images in the data path specified as argument  %%%%%%%%%%
 % img = {};
 % label = [];
@@ -71,30 +71,30 @@ function [featureTr featureTs lblTr lblTs nameTr nameTs V]=eigenfaceExtractByUsi
 %     %%% Calculate Conariance Matrix
 %     Y = cat(3,Y,cov(ImgZeroMean(:,:,j)));    
 %end
-%%%%%% for illumination %%%%%
-% if PX == 0
-%     load('data0_illumination.mat');
-% elseif PX == 1
-%     load('data1_illumination.mat');
-% elseif PX == 2
-%     load('data2_illumination.mat');
-% elseif PX == 3
-%     load('data3_illumination.mat');
-% elseif PX == 4
-%     load('data4_illumination.mat');
-% elseif PX == 5
-%     load('data5_illumination.mat');
-% elseif PX == 6
-%     load('data6_illumination.mat');
-% elseif PX == 7
-%     load('data7_illumination.mat');
-% elseif PX == 8
-%     load('data8_illumination.mat');
-% elseif PX == 9
-%     load('data9_illumination.mat');
-% end
+%%%%% for illumination %%%%%
+if PX == 0
+    load('data0_illumination.mat');
+elseif PX == 1
+    load('data1_illumination.mat');
+elseif PX == 2
+    load('data2_illumination.mat');
+elseif PX == 3
+    load('data3_illumination.mat');
+elseif PX == 4
+    load('data4_illumination.mat');
+elseif PX == 5
+    load('data5_illumination.mat');
+elseif PX == 6
+    load('data6_illumination.mat');
+elseif PX == 7
+    load('data7_illumination.mat');
+elseif PX == 8
+    load('data8_illumination.mat');
+elseif PX == 9
+    load('data9_illumination.mat');
+end
 
-% %%%%% for angle %%%%%
+%%%%% for angle %%%%%
 % if PX == 0
 %     load('data0_angle.mat');
 % elseif PX == 1
@@ -116,32 +116,33 @@ function [featureTr featureTs lblTr lblTs nameTr nameTs V]=eigenfaceExtractByUsi
 % elseif PX == 9
 %     load('data9_angle.mat');
 % end
-
+% 
 %%%%% for emoji %%%%%
-if PX == 0
-    load('data0_emoji.mat');
-elseif PX == 1
-    load('data1_emoji.mat');
-elseif PX == 2
-    load('data2_emoji.mat');
-elseif PX == 3
-    load('data3_emoji.mat');
-elseif PX == 4
-    load('data4_emoji.mat');
-elseif PX == 5
-    load('data5_emoji.mat');
-elseif PX == 6
-    load('data6_emoji.mat');
-elseif PX == 7
-    load('data7_emoji.mat');
-elseif PX == 8
-    load('data8_emoji.mat');
-elseif PX == 9
-    load('data9_emoji.mat');
-end
+% if PX == 0
+%     load('data0_emoji.mat');
+% elseif PX == 1
+%     load('data1_emoji.mat');
+% elseif PX == 2
+%     load('data2_emoji.mat');
+% elseif PX == 3
+%     load('data3_emoji.mat');
+% elseif PX == 4
+%     load('data4_emoji.mat');
+% elseif PX == 5
+%     load('data5_emoji.mat');
+% elseif PX == 6
+%     load('data6_emoji.mat');
+% elseif PX == 7
+%     load('data7_emoji.mat');
+% elseif PX == 8
+%     load('data8_emoji.mat');
+% elseif PX == 9
+%     load('data9_emoji.mat');
+% end
 
-
+%load('data0_angle');
 ImgZeroMean = xTr - m;
+%end
 
 %%% Mean Covarianc Matrix
 %L = mean(Y,3);
@@ -153,13 +154,15 @@ ImgZeroMean = xTr - m;
 %end
 
 %%%%% for max and min %%%%%
- L = zeros(size(Y,1),size(Y,1));
- for r = 1: size(Y, 1)
-     for t = 1: size(Y, 1)
-         L(r, t) = min(Y(r,t,:));
-     end
- end
+%  L = zeros(size(Y,1),size(Y,1));
+%  for r = 1: size(Y, 1)
+%      for t = 1: size(Y, 1)
+%          L(r, t) = min(Y(r,t,:));
+%      end
+%  end
 
+% For Skewness
+[L] = SkewnessCal(Y);
         
 
 % imgcount = size(Zeromean,2);
