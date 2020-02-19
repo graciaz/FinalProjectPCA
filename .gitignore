@@ -1,0 +1,17 @@
+
+2DPCA/data0_illumination.mat
+2DPCA/data1_illumination.mat
+2DPCA/data2_illumination.mat
+2DPCA/data3_illumination.mat
+2DPCA/data4_illumination.mat
+2DPCA/data5_illumination.mat
+2DPCA/data6_illumination.mat
+2DPCA/data7_illumination.mat
+2DPCA/data9_illumination.mat
+2DPCA/eigenfaceExtractByUsing2DPCA.asv
+2DPCA/face_recognition.asv
+*.asv
+*.mat
+2DPCA/mat_to_xls.m
+*.xlsx
+2DPCA/eigenfaceExtractByUsing2DPCA.asv
