@@ -61,6 +61,14 @@ vec_min2 = zeros(1, sizeVec);
 vec_skewness2 = zeros(1, sizeVec);
 vec_kurtosis2 = zeros(1, sizeVec);
 
+vec_mean3 = zeros(1, sizeVec);
+vec_median3 = zeros(1, sizeVec);
+vec_mode3 = zeros(1, sizeVec);
+vec_max3 = zeros(1, sizeVec);
+vec_min3 = zeros(1, sizeVec);
+vec_skewness3 = zeros(1, sizeVec);
+vec_kurtosis3 = zeros(1, sizeVec);
+
 vec_mean4 = zeros(1, sizeVec);
 vec_median4 = zeros(1, sizeVec);
 vec_mode4 = zeros(1, sizeVec);
@@ -109,14 +117,14 @@ vec_min9 = zeros(1, sizeVec);
 vec_skewness9 = zeros(1, sizeVec);
 vec_kurtosis9 = zeros(1, sizeVec);
 
-for i = 1: size(cov_mean, 1)
+for i = 1: size(cov_mean0, 1)
     vec_mean0 = [vec_mean0, cov_mean0(i,:)];
     vec_median0 = [vec_median0, cov_median0(i,:)];
     vec_mode0 = [vec_mode0, cov_mode0(i,:)];
     vec_max0 = [vec_max0, cov_max0(i,:)];
     vec_min0 = [vec_min0, cov_min0(i,:)];
-    vec_skewness0 = [vec_skewness0, cov_skewness(i,:)];
-    vec_kurtosis0 = [vec_kurtosis0, cov_kurtosis(i,:)];
+    vec_skewness0 = [vec_skewness0, cov_skewness0(i,:)];
+    vec_kurtosis0 = [vec_kurtosis0, cov_kurtosis0(i,:)];
     
     vec_mean1 = [vec_mean1, cov_mean1(i,:)];
     vec_median1 = [vec_median1, cov_median1(i,:)];
