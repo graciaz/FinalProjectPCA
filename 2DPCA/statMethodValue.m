@@ -1,27 +1,27 @@
 function [cov_mean, cov_median, cov_mode, cov_max, cov_min, cov_skewness, cov_kurtosis] = statMethodValue(PX)
 
 %%%%% for illumination %%%%%
-% if PX == 0
-%     load('data0_illumination.mat');
-% elseif PX == 1
-%     load('data1_illumination.mat');
-% elseif PX == 2
-%     load('data2_illumination.mat');
-% elseif PX == 3
-%     load('data3_illumination.mat');
-% elseif PX == 4
-%     load('data4_illumination.mat');
-% elseif PX == 5
-%     load('data5_illumination.mat');
-% elseif PX == 6
-%     load('data6_illumination.mat');
-% elseif PX == 7
-%     load('data7_illumination.mat');
-% elseif PX == 8
-%     load('data8_illumination.mat');
-% elseif PX == 9
-%     load('data9_illumination.mat');
-% end
+if PX == 0
+    load('data0_illumination.mat');
+elseif PX == 1
+    load('data1_illumination.mat');
+elseif PX == 2
+    load('data2_illumination.mat');
+elseif PX == 3
+    load('data3_illumination.mat');
+elseif PX == 4
+    load('data4_illumination.mat');
+elseif PX == 5
+    load('data5_illumination.mat');
+elseif PX == 6
+    load('data6_illumination.mat');
+elseif PX == 7
+    load('data7_illumination.mat');
+elseif PX == 8
+    load('data8_illumination.mat');
+elseif PX == 9
+    load('data9_illumination.mat');
+end
 
 %%%%% for angle %%%%%
 % if PX == 0
@@ -47,27 +47,27 @@ function [cov_mean, cov_median, cov_mode, cov_max, cov_min, cov_skewness, cov_ku
 % end
 % 
 %%%% for emoji %%%%%
-if PX == 0
-    load('data0_emoji.mat');
-elseif PX == 1
-    load('data1_emoji.mat');
-elseif PX == 2
-    load('data2_emoji.mat');
-elseif PX == 3
-    load('data3_emoji.mat');
-elseif PX == 4
-    load('data4_emoji.mat');
-elseif PX == 5
-    load('data5_emoji.mat');
-elseif PX == 6
-    load('data6_emoji.mat');
-elseif PX == 7
-    load('data7_emoji.mat');
-elseif PX == 8
-    load('data8_emoji.mat');
-elseif PX == 9
-    load('data9_emoji.mat');
-end
+% if PX == 0
+%     load('data0_emoji.mat');
+% elseif PX == 1
+%     load('data1_emoji.mat');
+% elseif PX == 2
+%     load('data2_emoji.mat');
+% elseif PX == 3
+%     load('data3_emoji.mat');
+% elseif PX == 4
+%     load('data4_emoji.mat');
+% elseif PX == 5
+%     load('data5_emoji.mat');
+% elseif PX == 6
+%     load('data6_emoji.mat');
+% elseif PX == 7
+%     load('data7_emoji.mat');
+% elseif PX == 8
+%     load('data8_emoji.mat');
+% elseif PX == 9
+%     load('data9_emoji.mat');
+% end
 
 ImgZeroMean = xTr - m;
 
@@ -99,6 +99,5 @@ end
 
 %%%%% For Kurtosis %%%%%
 [cov_kurtosis] = kurtosisCal(Y);
-
 
 end
