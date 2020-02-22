@@ -45,8 +45,8 @@ vec_min0 = zeros(1, sizeVec);
 vec_skewness0 = zeros(1, sizeVec);
 vec_kurtosis0 = zeros(1, sizeVec);
 
-vec_mean1 = zeros(1, sizeVec) * 2);
-vec_median1 = zeros(1, sizeVec) * 2);
+vec_mean1 = zeros(1, sizeVec);
+vec_median1 = zeros(1, sizeVec);
 vec_mode1 = zeros(1, sizeVec);
 vec_max1 = zeros(1, sizeVec);
 vec_min1 = zeros(1, sizeVec);
