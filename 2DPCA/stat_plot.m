@@ -18,19 +18,30 @@ load('stat_vector_angle');
 % 
 % stop = 56;
 
-figure()
-boxplot(all_stat0(:,500:550));
-hold on
-plot(vec_mean0(1,500:550),'g');
+%%% All Render %%%
+% figure()
+% boxplot(all_stat0());
+% hold on
+% plot(vec_mean0(),'g');
+count = 0;
 
+%%% Part Render %%%
 size_cov = size(cov_mean0, 1);
 for i = 1: size(cov_mean0, 1)
+    %%%%% Y height For Angle %%%%%
+    ylim([-2 12])
+    
     start = size_cov * (i-1) + 1;
     stop = size_cov * i
     figure()
+    
     boxplot(all_stat0(:,start:stop));
     hold on
     plot(vec_mean0(1,start:stop),'g');
+    
+    %%%%% Save Function%%%%%
+        export_fig(sprintf('figure%d',count),'-jpg');
+        count = count+1;
 end
     
 
