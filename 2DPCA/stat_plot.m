@@ -19,9 +19,20 @@ load('stat_vector_angle');
 % stop = 56;
 
 figure()
-boxplot(all_stat0);
+boxplot(all_stat0(:,500:550));
 hold on
-plot(vec_min9());
+plot(vec_mean0(1,500:550),'g');
+
+size_cov = size(cov_mean0, 1);
+for i = 1: size(cov_mean0, 1)
+    start = size_cov * (i-1) + 1;
+    stop = size_cov * i
+    figure()
+    boxplot(all_stat0(:,start:stop));
+    hold on
+    plot(vec_mean0(1,start:stop),'g');
+end
+    
 
 %%%%%%%%%%%%% note for editor %%%%%%%%%%%%%%
 % angle vector = 1 x 8646
