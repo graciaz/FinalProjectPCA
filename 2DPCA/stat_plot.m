@@ -23,13 +23,18 @@ load('stat_vector_angle');
 % boxplot(all_stat0());
 % hold on
 % plot(vec_mean0(),'g');
-count = 1;
+count = 0;
 
 %%% Part Render %%%
 size_cov = size(cov_mean0, 1);
 for i = 1: size(cov_mean0, 1)
+    
     %%%%% Y height For Angle %%%%%
     ylim([-2 12])
+    
+    %%%%% Save Function%%%%%
+    export_fig(sprintf('figure-angle%d',count),'-jpg');
+    count = count+1;
     
     start = size_cov * (i-1) + 1;
     stop = size_cov * i
@@ -37,14 +42,15 @@ for i = 1: size(cov_mean0, 1)
     
     boxplot(all_stat0(:,start:stop));
     hold on
-    plot(vec_mean0(1,start:stop),'g');
+    plot(vec_mean0(1,start:stop),'g');    
     
-    %%%%% Save Function%%%%%
-    export_fig(sprintf('figure%d',count),'-jpg');
-    count = count+1;
 end
-    
 
+%%%%% For last figure %%%%%
+ylim([-2 12])
+export_fig(sprintf('figure-angle%d',count),'-jpg');
+count = count+1;
+    
 %%%%%%%%%%%%% note for editor %%%%%%%%%%%%%%
 % angle vector = 1 x 8646
 % emoji vector = 1 x 38025
