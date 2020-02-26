@@ -26,6 +26,7 @@ load('stat_vector_angle');
 count = 0;
 
 %%% Part Render %%%
+%%% Finish in 1 round %%%
 size_cov = size(cov_mean0, 1);
 for i = 1: size(cov_mean0, 1)
     
@@ -38,6 +39,59 @@ for i = 1: size(cov_mean0, 1)
     
     start = size_cov * (i-1) + 1;
     stop = size_cov * i
+    figure()
+    
+    boxplot(all_stat0(:,start:stop));
+    hold on
+    plot(vec_mean0(1,start:stop),'g');    
+    
+end
+
+%%%%%%%%%%% Finish in 2 round %%%%%%%%%%%%
+
+%%%%% Round 1 %%%%%
+%%% for emoji %%%
+size_cov1 = 98;
+%%% for illumination %%%
+size_cov1 = size(cov_mean0, 1) / 2;
+
+for i = 1: size_cov1
+    
+    %%%%% Y height For Angle %%%%%
+    ylim([-2 12])
+    
+    %%%%% Save Function%%%%%
+    export_fig(sprintf('figure-angle%d',count),'-jpg');
+    count = count+1;
+    
+    start = size(cov_mean0, 1) * (i-1) + 1;
+    stop = size(cov_mean0, 1) * i
+    figure()
+    
+    boxplot(all_stat0(:,start:stop));
+    hold on
+    plot(vec_mean0(1,start:stop),'g');    
+    
+end
+
+%%%%% Round 2 %%%%%
+%%% for emoji %%%
+size_cov2 = 97;
+%%% for illumination %%%
+size_cov2 = size(cov_mean0, 1);
+
+start_loop = size_cov1+1;
+for i = start_loop: size_cov2
+    
+    %%%%% Y height For Angle %%%%%
+    ylim([-2 12])
+    
+    %%%%% Save Function%%%%%
+    export_fig(sprintf('figure-angle%d',count),'-jpg');
+    count = count+1;
+    
+    start = size(cov_mean0, 1) * (i-1) + 1;
+    stop = size(cov_mean0, 1) * i
     figure()
     
     boxplot(all_stat0(:,start:stop));
