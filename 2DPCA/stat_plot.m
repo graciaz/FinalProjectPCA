@@ -23,7 +23,7 @@ load('stat_vector_angle');
 % boxplot(all_stat0());
 % hold on
 % plot(vec_mean0(),'g');
-count = 0;
+count = 1;
 
 %%% Part Render %%%
 size_cov = size(cov_mean0, 1);
@@ -40,8 +40,8 @@ for i = 1: size(cov_mean0, 1)
     plot(vec_mean0(1,start:stop),'g');
     
     %%%%% Save Function%%%%%
-        export_fig(sprintf('figure%d',count),'-jpg');
-        count = count+1;
+    export_fig(sprintf('figure%d',count),'-jpg');
+    count = count+1;
 end
     
 
