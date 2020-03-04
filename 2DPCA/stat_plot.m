@@ -7,6 +7,42 @@ load('stat_vector_angle');
 %load('stat_vector_emoji');
 %load('stat_vector_illumination');
 
+%%%%% Test imagesc %%%%%
+% figure()
+% imagesc(cov_mean8)
+% figure()
+% imagesc(cov_median8)
+% figure()
+% imagesc(cov_mode8)
+% figure()
+% imagesc(cov_max8)
+% figure()
+% imagesc(cov_min8)
+% figure()
+% imagesc(cov_skewness8)
+% figure()
+% imagesc(cov_kurtosis8)
+
+%%%%% test plot stat %%%%%
+set(gcf, 'Position', get(0, 'Screensize'));
+
+%plot(vec_mean4, 'Marker', 'o', 'DisplayName','mean')
+% hold on
+%plot(vec_median4, 'Marker', 'x', 'DisplayName','median')
+% hold on
+%plot(vec_mode4, 'Marker', '+', 'DisplayName','mode')
+%hold on
+%plot(vec_max4, 'Marker', '*', 'DisplayName','max')
+% hold on
+%plot(vec_min4,  'Marker', 'p', 'DisplayName','min')
+% hold on
+plot(vec_skewness4, 'Marker', 's', 'DisplayName','skewness')
+% hold on
+%plot(vec_kurtosis4, 'Marker', 'd', 'DisplayName','kurtosis')
+
+legend
+
+stop = 0;
 %%% All Render %%%
 % figure()
 % boxplot(all_stat0());
