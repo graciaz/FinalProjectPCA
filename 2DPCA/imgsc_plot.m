@@ -28,34 +28,34 @@ path = "angle";
 %%imgsc_lim = [-1.8 23.5]; % all statistics method
 %imgsc_lim = [-1.8 3.5]; % without kurtosis
 
-% figure()
-% imagesc(cov_mean4, imgsc_lim)
-% colorbar
-% title('mean')
-% figure()
-% imagesc(cov_median4, imgsc_lim)
-% colorbar
-% title('median')
-% figure()
-% imagesc(cov_mode4, imgsc_lim)
-% colorbar
-% title('mode')
-% figure()
-% imagesc(cov_max4, imgsc_lim)
-% colorbar
-% title('max')
-% figure()
-% imagesc(cov_min4, imgsc_lim)
-% colorbar
-% title('min')
-% figure()
-% imagesc(cov_skewness4, imgsc_lim)
-% colorbar
-% title('skewness')
-% figure()
-% imagesc(cov_kurtosis4, imgsc_lim)
-% colorbar
-% title('kurtosis')
+figure()
+imagesc(cov_mean4)%, imgsc_lim)
+colorbar
+title('mean')
+figure()
+imagesc(cov_median4)%, imgsc_lim)
+colorbar
+title('median')
+figure()
+imagesc(cov_mode4)%, imgsc_lim)
+colorbar
+title('mode')
+figure()
+imagesc(cov_max4, imgsc_lim)
+colorbar
+title('max')
+figure()
+imagesc(cov_min4, imgsc_lim)
+colorbar
+title('min')
+figure()
+imagesc(cov_skewness4, imgsc_lim)
+colorbar
+title('skewness')
+figure()
+imagesc(cov_kurtosis4, imgsc_lim)
+colorbar
+title('kurtosis')
 
 %%%%% For nomalize covariance matrix %%%%%
 figure()
